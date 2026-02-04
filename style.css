@@ -1,24 +1,68 @@
+:root {
+    --background-color: #f0f0f0;
+    --container-bg-color: white;
+    --text-color: #333;
+    --lotto-number-bg-color: #eee;
+    --history-item-bg-color: #f9f9f9;
+    --button-bg-color: #4CAF50;
+    --button-text-color: white;
+    --button-hover-bg-color: #45a049;
+    --box-shadow-color: rgba(0, 0, 0, 0.1);
+    --button-shadow-color: rgba(76, 175, 80, 0.4);
+    --button-hover-shadow-color: rgba(76, 175, 80, 0.6);
+}
+
+body.dark-mode {
+    --background-color: #121212;
+    --container-bg-color: #1e1e1e;
+    --text-color: #f0f0f0;
+    --lotto-number-bg-color: #333;
+    --history-item-bg-color: #2c2c2c;
+    --button-bg-color: #5a5a5a;
+    --button-text-color: #f0f0f0;
+    --button-hover-bg-color: #6a6a6a;
+    --box-shadow-color: rgba(255, 255, 255, 0.1);
+    --button-shadow-color: rgba(90, 90, 90, 0.4);
+    --button-hover-shadow-color: rgba(106, 106, 106, 0.6);
+}
+
 body {
-    background-color: #f0f0f0;
+    background-color: var(--background-color);
     font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    transition: background-color 0.3s ease;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 .container {
     text-align: center;
-    background-color: white;
+    background-color: var(--container-bg-color);
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px var(--box-shadow-color);
+    position: relative;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 h1 {
-    color: #333;
+    color: var(--text-color);
     margin-bottom: 30px;
 }
 
@@ -33,30 +77,31 @@ h1 {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #eee;
+    background-color: var(--lotto-number-bg-color);
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 24px;
     font-weight: bold;
-    color: #333;
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #generate-btn {
-    background-color: #4CAF50;
-    color: white;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
     padding: 15px 30px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     font-size: 18px;
-    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+    box-shadow: 0 5px 15px var(--button-shadow-color);
     transition: all 0.3s ease;
 }
 
 #generate-btn:hover {
-    background-color: #45a049;
-    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.6);
+    background-color: var(--button-hover-bg-color);
+    box-shadow: 0 8px 20px var(--button-hover-shadow-color);
 }
 
 .history {
@@ -69,8 +114,10 @@ h1 {
 }
 
 #history-list li {
-    background-color: #f9f9f9;
+    background-color: var(--history-item-bg-color);
+    color: var(--text-color);
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
